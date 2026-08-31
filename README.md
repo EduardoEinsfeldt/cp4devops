@@ -101,13 +101,11 @@ No Cloud Shell, na pasta do repositorio:
 
 ```bash
 bash scripts/01-criar-recursos.sh
-bash scripts/02-build-push.sh
+az acr build --registry dimdimrm556460 --image rm556460-mysql:v1 -f docker/mysql/Dockerfile .
+az acr build --registry dimdimrm556460 --image rm556460-app:v1   -f docker/app/Dockerfile .
 bash scripts/03-deploy-aci.sh
 ```
 
-Se o build foi no PC, no Cloud Shell rode so o `01` e o `03`.
-
-O `03-deploy-aci.sh` cria os **dois** ACIs. Nao rode junto `03-aci-mysql.sh` + `04-aci-api-java.sh` (duplica).
 
 Recursos criados:
 - Resource Group `rg-dimdim`
