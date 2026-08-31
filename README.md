@@ -8,16 +8,16 @@ Recursos Azure criados **somente via Azure CLI** (scripts nesta pasta).
 
 Representante: RM **556460**
 
-| Recurso | Nome |
-|---|---|
-| Resource Group | `rg-dimdim` |
-| ACR | `dimdimrm556460` |
+| Recurso | Nome                   |
+|---|------------------------|
+| Resource Group | `rg-dimdim`            |
+| ACR | `dimdimrm556460`       |
 | Storage Account | `volumedimdimrm556460` |
-| File Share | `mysql-dimdim-volume` |
-| Imagem / ACI MySQL | `rm556460-mysql` |
-| Imagem / ACI App | `rm556460-app` |
-| Tag | `v1` |
-| Regiao | `eastus` |
+| File Share | `mysql-dimdim-volume`  |
+| Imagem / ACI MySQL | `rm556460-mysql`       |
+| Imagem / ACI App | `rm556460-app`         |
+| Tag | `v1`                   |
+| Regiao | `northcentralus`       |
 
 ---
 

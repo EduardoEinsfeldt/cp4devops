@@ -5,7 +5,7 @@
 
 rm=rm556460
 resourceGroup="rg-dimdim"
-location="eastus"
+location="northcentralus"
 acrName="dimdimrm556460"
 storageAccountName="volumedimdimrm556460"
 file_share_name="mysql-dimdim-volume"
