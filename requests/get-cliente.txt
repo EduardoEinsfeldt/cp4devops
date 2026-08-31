@@ -1,0 +1,3 @@
+GET /api/clientes
+GET /api/clientes/1
+DELETE /api/clientes/1

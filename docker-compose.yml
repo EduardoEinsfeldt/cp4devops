@@ -1,0 +1,40 @@
+# SOMENTE PARA TESTE LOCAL. A entrega da prova e na Azure (ACR + ACI).
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: docker/mysql/Dockerfile
+    container_name: dimdim-mysql-local
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: dimdim
+      MYSQL_USER: dimdim
+      MYSQL_PASSWORD: dimdim123
+    volumes:
+      - dimdim_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-prootpass"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    container_name: dimdim-app-local
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/dimdim?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: dimdim
+      SPRING_DATASOURCE_PASSWORD: dimdim123
+    user: "app"
+
+volumes:
+  dimdim_mysql_data:
